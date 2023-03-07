@@ -6,6 +6,7 @@
 #include <conio.h>
 #include <cstdlib>
 #include <cstdio>
+#include <limits>
 
 using namespace std;
 
@@ -15,12 +16,20 @@ int main() {
     //A - расширенная матрица системы, A0 - ее копия для проверки решения
     int i, j, k;
     float buf, x[n], b[n];
+    int input;
     cout << "Матрица и вектор правой части";
     for (i = 0; i < n; i++) {
         cout << endl;
         for (j = 0; j < n + 1; j++) {
             cout << "array[" << i << "," << j << "]=";
-            cin >> a0[i][j];
+            cin >> input;
+            while (!std::cin.good())
+            {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                cout << "Неверный ввод! array[" << i << "," << j << "]=";
+                cin >> input;
+            }
             a[i][j] = a0[i][j];
             //Нулевых элементов нет, деления на ноль не будет
         }
