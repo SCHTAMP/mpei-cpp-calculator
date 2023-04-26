@@ -1,11 +1,3 @@
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <iostream>
 #include <regex>
 #include <iterator>
@@ -17,7 +9,12 @@ using namespace std;
 int main()
 {
     
-    std::string s = "1) Элемент 1.1) Элемент 1.2) Элемент 2) Элемент 2.1) Элемент 2.1.1) Элемент 2.1.1.5) Элемент";
+    std::ifstream myfile ("text.txt");
+    std::string s;
+    if (!myfile.is_open()) return
+    std::getline (myfile, s);
+  
+//     std::string s = "1) Элемент 1.1) Элемент 1.2) Элемент 2) Элемент 2.1) Элемент 2.1.1) Элемент 2.1.1.5) Элемент";
     
     const regex word_regex(R"((\d)((\.\d)*)\)\s*\S*)");
     
