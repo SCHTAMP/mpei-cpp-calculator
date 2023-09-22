@@ -36,6 +36,11 @@ double evaluateConstant(const string& constant) {
         return it->second;
     }
 
+    auto memoryCell = memory.find(constant);
+    if (memoryCell != memory.end()) {
+        return memoryCell->second;
+    }
+
     return std::stod(constant);
 }
 
