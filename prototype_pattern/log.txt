@@ -1,0 +1,5 @@
+Cloning ConcretePrototype1
+ConcretePrototype1: performAction
+Cloning ConcretePrototype2
+ConcretePrototype2: performAction
+Exception caught: Invalid prototype type
